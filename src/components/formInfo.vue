@@ -8,33 +8,42 @@
         <b-container>
           <b-card class="p-4">
             <div>
-              <b-form
-                @submit="onSubmit"
-                @reset="onReset"
-                v-if="show"
-                class="text-left"
-              >
+              <b-form @submit="onSubmit" v-if="show" class="text-left">
                 <!-- Company Name -->
+                <label class="text-left">All fields are compolsory.</label>
+
                 <b-form-group
                   id="input-group-1"
                   label="Company Name:"
                   label-for="input-1"
                 >
-                  <div class="d-flex">
-                    <b-form-input
-                      id="input-1"
-                      v-model="form.comapny"
-                      type="comapny"
-                      required
-                      placeholder="Enter Comapny"
-                    ></b-form-input>
-                    <div class="mx-auto">
+                  <b-row>
+                    <b-col md="10">
+                      <b-form-input
+                        id="input-1"
+                        placeholder="Your Company Name"
+                        v-model="$v.userDetails.companyName.$model"
+                        :state="validateState('companyName')"
+                        aria-describedby="input-userDetails-companyName"
+                      ></b-form-input>
+                      <b-form-invalid-feedback
+                        id="input-userDetails-companyName"
+                      >
+                        Name of hotel is required.
+                      </b-form-invalid-feedback>
+                    </b-col>
+                    <b-col md="2">
                       <div>
-                        <b-icon icon="check2" class="h2 text-success"></b-icon>
+                        <div>
+                          <b-icon
+                            icon="check2"
+                            class="h2 text-success"
+                          ></b-icon>
+                        </div>
+                        <!-- <div><b-icon icon="x" class="h2 text-danger"></b-icon></div> -->
                       </div>
-                      <!-- <div><b-icon icon="x" class="h2 text-danger"></b-icon></div> -->
-                    </div>
-                  </div>
+                    </b-col>
+                  </b-row>
                 </b-form-group>
                 <!-- director -->
                 <b-form-group
@@ -42,23 +51,25 @@
                   label="Director:"
                   label-for="input-2"
                 >
-                  <div class="d-flex">
-                    <b-form-input
-                      id="input-2"
-                      v-model="form.director"
-                      type="director"
-                      required
-                      placeholder="Enter director"
-                    ></b-form-input>
-                    <div class="mx-auto">
-                      <div>
-                        <!-- <b-icon icon="check2" class="h2 text-success"></b-icon> -->
+                  <b-row>
+                    <b-col md="10">
+                      <b-form-input
+                        id="input-2"
+                        v-model="userDetails.director"
+                        placeholder="Full Name Of Director"
+                      ></b-form-input>
+                    </b-col>
+                    <b-col md="2">
+                      <div class="mx-auto">
+                        <div>
+                          <!-- <b-icon icon="check2" class="h2 text-success"></b-icon> -->
+                        </div>
+                        <div>
+                          <b-icon icon="x" class="h2 text-danger"></b-icon>
+                        </div>
                       </div>
-                      <div>
-                        <b-icon icon="x" class="h2 text-danger"></b-icon>
-                      </div>
-                    </div>
-                  </div>
+                    </b-col>
+                  </b-row>
                 </b-form-group>
 
                 <!-- first name -->
@@ -67,20 +78,27 @@
                   label="First Name:"
                   label-for="input-3"
                 >
-                  <div class="d-flex">
-                    <b-form-input
-                      id="input-3"
-                      v-model="form.name"
-                      required
-                      placeholder="Enter Name"
-                    ></b-form-input>
-                    <div class="mx-auto">
-                      <div>
-                        <b-icon icon="check2" class="h2 text-success"></b-icon>
+                  <b-row>
+                    <b-col md="10">
+                      <b-form-input
+                        id="input-3"
+                        v-model="userDetails.firstName"
+                        required
+                        placeholder="First Name"
+                      ></b-form-input>
+                    </b-col>
+                    <b-col md="2">
+                      <div class="mx-auto">
+                        <div>
+                          <b-icon
+                            icon="check2"
+                            class="h2 text-success"
+                          ></b-icon>
+                        </div>
+                        <!-- <div><b-icon icon="x" class="h2 text-danger"></b-icon></div> -->
                       </div>
-                      <!-- <div><b-icon icon="x" class="h2 text-danger"></b-icon></div> -->
-                    </div>
-                  </div>
+                    </b-col>
+                  </b-row>
                 </b-form-group>
                 <!-- last name -->
                 <b-form-group
@@ -88,20 +106,27 @@
                   label="Last Name:"
                   label-for="input-4"
                 >
-                  <div class="d-flex">
-                    <b-form-input
-                      id="input-4"
-                      v-model="form.lastname"
-                      required
-                      placeholder="Enter Last Name"
-                    ></b-form-input>
-                    <div class="mx-auto">
-                      <div>
-                        <b-icon icon="check2" class="h2 text-success"></b-icon>
+                  <b-row>
+                    <b-col md="10">
+                      <b-form-input
+                        id="input-4"
+                        v-model="userDetails.lastName"
+                        required
+                        placeholder="Last Name"
+                      ></b-form-input>
+                    </b-col>
+                    <b-col md="2">
+                      <div class="mx-auto">
+                        <div>
+                          <b-icon
+                            icon="check2"
+                            class="h2 text-success"
+                          ></b-icon>
+                        </div>
+                        <!-- <div><b-icon icon="x" class="h2 text-danger"></b-icon></div> -->
                       </div>
-                      <!-- <div><b-icon icon="x" class="h2 text-danger"></b-icon></div> -->
-                    </div>
-                  </div>
+                    </b-col>
+                  </b-row>
                 </b-form-group>
                 <!-- email -->
                 <b-form-group
@@ -109,21 +134,26 @@
                   label="Email address:"
                   label-for="input-5"
                 >
-                  <div class="d-flex">
-                    <b-form-input
-                      id="input-5"
-                      v-model="form.email"
-                      type="email"
-                      required
-                      placeholder="Enter email"
-                    ></b-form-input>
-                    <div class="mx-auto">
-                      <div>
-                        <b-icon icon="check2" class="h2 text-success"></b-icon>
+                  <b-row>
+                    <b-col md="10">
+                      <b-form-input
+                        id="input-5"
+                        v-model="userDetails.email"
+                        placeholder="Email Address"
+                      ></b-form-input>
+                    </b-col>
+                    <b-col md="2">
+                      <div class="mx-auto">
+                        <div>
+                          <b-icon
+                            icon="check2"
+                            class="h2 text-success"
+                          ></b-icon>
+                        </div>
+                        <!-- <div><b-icon icon="x" class="h2 text-danger"></b-icon></div> -->
                       </div>
-                      <!-- <div><b-icon icon="x" class="h2 text-danger"></b-icon></div> -->
-                    </div>
-                  </div>
+                    </b-col>
+                  </b-row>
                 </b-form-group>
                 <!-- phone No -->
                 <b-form-group
@@ -131,20 +161,27 @@
                   label="Phone No:"
                   label-for="input-6"
                 >
-                  <div class="d-flex">
-                    <b-form-input
-                      id="input-6"
-                      v-model="form.phoneNo"
-                      required
-                      placeholder="Enter Phone No"
-                    ></b-form-input>
-                    <div class="mx-auto">
-                      <div>
-                        <b-icon icon="check2" class="h2 text-success"></b-icon>
+                  <b-row>
+                    <b-col md="10">
+                      <b-form-input
+                        id="input-6"
+                        v-model="userDetails.phone"
+                        required
+                        placeholder="Enter Phone No"
+                      ></b-form-input>
+                    </b-col>
+                    <b-col md="2">
+                      <div class="mx-auto">
+                        <div>
+                          <b-icon
+                            icon="check2"
+                            class="h2 text-success"
+                          ></b-icon>
+                        </div>
+                        <!-- <div><b-icon icon="x" class="h2 text-danger"></b-icon></div> -->
                       </div>
-                      <!-- <div><b-icon icon="x" class="h2 text-danger"></b-icon></div> -->
-                    </div>
-                  </div>
+                    </b-col>
+                  </b-row>
                 </b-form-group>
                 <!-- address -->
                 <b-form-group
@@ -152,20 +189,27 @@
                   label="Address:"
                   label-for="input-7"
                 >
-                  <div class="d-flex">
-                    <b-form-input
-                      id="input-7"
-                      v-model="form.address"
-                      required
-                      placeholder="Enter Address"
-                    ></b-form-input>
-                    <div class="mx-auto">
-                      <div>
-                        <b-icon icon="check2" class="h2 text-success"></b-icon>
+                  <b-row>
+                    <b-col md="10">
+                      <b-form-input
+                        id="input-7"
+                        v-model="userDetails.address"
+                        required
+                        placeholder="Enter Address"
+                      ></b-form-input>
+                    </b-col>
+                    <b-col md="2">
+                      <div class="mx-auto">
+                        <div>
+                          <b-icon
+                            icon="check2"
+                            class="h2 text-success"
+                          ></b-icon>
+                        </div>
+                        <!-- <div><b-icon icon="x" class="h2 text-danger"></b-icon></div> -->
                       </div>
-                      <!-- <div><b-icon icon="x" class="h2 text-danger"></b-icon></div> -->
-                    </div>
-                  </div>
+                    </b-col>
+                  </b-row>
                 </b-form-group>
                 <!-- back NAme -->
                 <b-form-group
@@ -173,22 +217,26 @@
                   label="Bank Name:"
                   label-for="input-8"
                 >
-                  <div class="d-flex">
-                    <b-form-input
-                      id="input-8"
-                      v-model="form.bankname"
-                      required
-                      placeholder="Enter Bank Name"
-                    ></b-form-input>
-                    <div class="mx-auto">
-                      <div>
-                        <!-- <b-icon icon="check2" class="h2 text-success"></b-icon> -->
+                  <b-row>
+                    <b-col md="10">
+                      <b-form-input
+                        id="input-8"
+                        v-model="userDetails.bankName"
+                        required
+                        placeholder="Enter Bank Name"
+                      ></b-form-input>
+                    </b-col>
+                    <b-col md="2">
+                      <div class="mx-auto">
+                        <div>
+                          <!-- <b-icon icon="check2" class="h2 text-success"></b-icon> -->
+                        </div>
+                        <div>
+                          <b-icon icon="x" class="h2 text-danger"></b-icon>
+                        </div>
                       </div>
-                      <div>
-                        <b-icon icon="x" class="h2 text-danger"></b-icon>
-                      </div>
-                    </div>
-                  </div>
+                    </b-col>
+                  </b-row>
                 </b-form-group>
                 <!-- account No -->
                 <b-form-group
@@ -196,26 +244,29 @@
                   label="Account No:"
                   label-for="input-8"
                 >
-                  <div class="d-flex">
-                    <b-form-input
-                      id="input-8"
-                      v-model="form.accountNo"
-                      required
-                      placeholder="Enter Account No"
-                    ></b-form-input>
-                    <div class="mx-auto">
-                      <div>
-                        <!-- <b-icon icon="check2" class="h2 text-success"></b-icon> -->
+                  <b-row>
+                    <b-col md="10">
+                      <b-form-input
+                        id="input-8"
+                        v-model="userDetails.accountNumber"
+                        placeholder="Enter Account Number"
+                      ></b-form-input>
+                    </b-col>
+                    <b-col md="2">
+                      <div class="mx-auto">
+                        <div>
+                          <!-- <b-icon icon="check2" class="h2 text-success"></b-icon> -->
+                        </div>
+                        <div>
+                          <b-icon icon="x" class="h2 text-danger"></b-icon>
+                        </div>
                       </div>
-                      <div>
-                        <b-icon icon="x" class="h2 text-danger"></b-icon>
-                      </div>
-                    </div>
-                  </div>
+                    </b-col>
+                  </b-row>
                 </b-form-group>
                 <div class="text-center verified-btn">
                   <b-button type="submit" variant="primary" class="px-5"
-                    >Verified</b-button
+                    >Verify</b-button
                   >
                   <!-- <b-button type="reset" variant="danger">Reset</b-button> -->
                 </div>
@@ -229,40 +280,66 @@
 </template>
 
 <script>
+import { validationMixin } from "vuelidate";
+import { required } from "vuelidate/lib/validators";
 export default {
+  mixins: [validationMixin],
   data() {
     return {
-      form: {
-        comapny: "",
-        director: "",
-        name: "",
-        lastname: "",
-        email: "",
-        phoneNo: "",
-        address: "",
-        bankname: "",
-        accountNo: ""
+      userDetails: {
+        companyName: null,
+        director: null,
+        firstName: null,
+        lastName: null,
+        email: null,
+        phone: null,
+        address: null,
+        bankName: null,
+        accountNumber: null
       },
       show: true
     };
   },
+  validations: {
+    userDetails: {
+      companyName: {
+        required
+      },
+      director: {
+        required
+      },
+      firstName: {
+        required
+      },
+      lastName: {
+        required
+      },
+      email: {
+        required
+      },
+      phone: {
+        required
+      },
+      address: {
+        required
+      },
+      bankName: {
+        required
+      },
+      accountNumber: {
+        required
+      }
+    }
+  },
   methods: {
+    validateState(name) {
+      const { $dirty, $error } = this.$v.userDetails[name];
+
+      return $dirty ? !$error : null;
+    },
     onSubmit(evt) {
       evt.preventDefault();
-      alert(JSON.stringify(this.form));
-    },
-    onReset(evt) {
-      evt.preventDefault();
-      // Reset our form values
-      this.form.email = "";
-      this.form.name = "";
-      this.form.food = null;
-      this.form.checked = [];
-      // Trick to reset/clear native browser form validation state
-      this.show = false;
-      this.$nextTick(() => {
-        this.show = true;
-      });
+      alert(JSON.stringify(this.userDetails));
     }
   }
 };
