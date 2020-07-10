@@ -9,7 +9,7 @@ servers:
   - url: 'http://localhost:3000'
     description: VerifAid API for Verification of User
 paths:
-  /userDetails/getInfo:
+  /:
     post:
       summary: Your GET endpoint
       tags: []
@@ -108,6 +108,15 @@ paths:
                 properties:
                   '':
                     type: string
+        '401':
+          description: Unauthorized
+        '404':
+          description: A user with the specified Information was not found.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
       operationId: post-userDetails-getInfo
       requestBody:
         content:
@@ -147,6 +156,11 @@ paths:
                   type: string
                 sortCode:
                   type: string
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accesstoken
 components:
   schemas:
     User:
