@@ -7,7 +7,7 @@ info:
     email: jagruti@wohlig.com
 servers:
   - url: 'http://localhost:3000'
-    description: VerifAid API for Verification of User
+    description: Verifying money flow across businesses.
 paths:
   /:
     post:
