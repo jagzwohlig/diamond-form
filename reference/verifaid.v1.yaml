@@ -10,7 +10,7 @@ servers:
     description: VerifAid API for Verification of User
 paths:
   /userDetails/getInfo:
-    get:
+    post:
       summary: Your GET endpoint
       tags: []
       responses:
@@ -108,8 +108,7 @@ paths:
                 properties:
                   '':
                     type: string
-      operationId: get-userDetails-getInfo
-      parameters: []
+      operationId: post-userDetails-getInfo
       requestBody:
         content:
           application/json:
