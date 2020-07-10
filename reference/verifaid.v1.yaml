@@ -1,0 +1,250 @@
+openapi: 3.0.0
+info:
+  title: verifaid
+  version: '1.0'
+  contact:
+    name: jagruti
+    email: jagruti@wohlig.com
+servers:
+  - url: 'http://localhost:3000'
+    description: VerifAid API for Verification of User
+paths:
+  /userDetails/getInfo:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  compnyName:
+                    type: object
+                    properties:
+                      status:
+                        type: boolean
+                  companyHouseNumber:
+                    type: object
+                    properties:
+                      status:
+                        type: boolean
+                  firstName:
+                    type: object
+                    properties:
+                      status:
+                        type: boolean
+                  lastName:
+                    type: object
+                    properties:
+                      status:
+                        type: boolean
+                  email:
+                    type: object
+                    properties:
+                      status:
+                        type: boolean
+                  phone:
+                    type: object
+                    properties:
+                      status:
+                        type: boolean
+                  addressOne:
+                    type: object
+                    properties:
+                      status:
+                        type: boolean
+                  addressTwo:
+                    type: object
+                    properties:
+                      status:
+                        type: boolean
+                  postCode:
+                    type: object
+                    properties:
+                      status:
+                        type: boolean
+                  houseNumber:
+                    type: object
+                    properties:
+                      status:
+                        type: boolean
+                  country:
+                    type: object
+                    properties:
+                      status:
+                        type: boolean
+                  bankName:
+                    type: object
+                    properties:
+                      status:
+                        type: boolean
+                  accountNumber:
+                    type: object
+                    properties:
+                      status:
+                        type: boolean
+                  vatNumber:
+                    type: object
+                    properties:
+                      status:
+                        type: boolean
+                  dob:
+                    type: object
+                    properties:
+                      status:
+                        type: boolean
+                  sortCode:
+                    type: object
+                    properties:
+                      status:
+                        type: boolean
+              examples: {}
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  '':
+                    type: string
+      operationId: get-userDetails-getInfo
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                companyName:
+                  type: string
+                companyHouseNumber:
+                  type: string
+                firstName:
+                  type: string
+                lastName':
+                  type: string
+                email:
+                  type: string
+                phone:
+                  type: string
+                addressOne:
+                  type: string
+                addressTwo:
+                  type: string
+                postalCode:
+                  type: string
+                houseNumber:
+                  type: string
+                country:
+                  type: string
+                bankName:
+                  type: string
+                accountNumber:
+                  type: string
+                vatNumber:
+                  type: string
+                dob:
+                  type: string
+                sortCode:
+                  type: string
+components:
+  schemas:
+    User:
+      title: User
+      x-examples:
+        example-1: {}
+      type: object
+      properties:
+        id:
+          type: string
+        companyName:
+          type: object
+          properties:
+            status:
+              type: boolean
+        companyHouseNumber:
+          type: object
+          properties:
+            status:
+              type: boolean
+        firstName:
+          type: object
+          properties:
+            status:
+              type: boolean
+        lastName:
+          type: object
+          properties:
+            status:
+              type: boolean
+        email:
+          type: object
+          properties:
+            status:
+              type: boolean
+        phone:
+          type: object
+          properties:
+            status:
+              type: boolean
+        addressOne:
+          type: object
+          properties:
+            status:
+              type: boolean
+        addressTwo:
+          type: object
+          properties:
+            status:
+              type: boolean
+        postCode:
+          type: object
+          properties:
+            status:
+              type: boolean
+        houseNumber:
+          type: object
+          properties:
+            status:
+              type: boolean
+        country:
+          type: object
+          properties:
+            status:
+              type: boolean
+        bankName:
+          type: object
+          properties:
+            status:
+              type: boolean
+        accountNumber:
+          type: object
+          properties:
+            status:
+              type: boolean
+        vatNumber:
+          type: object
+          properties:
+            status:
+              type: boolean
+        dob:
+          type: object
+          properties:
+            status:
+              type: boolean
+        sortCode:
+          type: object
+          properties:
+            status:
+              type: boolean
+        '':
+          type: string
+  securitySchemes:
+    API Key - 1:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: ''
+          refreshUrl: ''
+          scopes: {}
