@@ -11,7 +11,7 @@ servers:
 paths:
   /:
     post:
-      summary: Your GET endpoint
+      summary: Your POST endpoint
       tags: []
       responses:
         '200':
@@ -112,11 +112,6 @@ paths:
           description: Unauthorized
         '404':
           description: A user with the specified Information was not found.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties: {}
       operationId: post-userDetails-getInfo
       requestBody:
         content:
