@@ -5,6 +5,7 @@ info:
   contact:
     name: jagruti
     email: jagruti@wohlig.com
+  description: ''
 servers:
   - url: 'http://localhost:3000'
     description: Verifying money flow across businesses.
@@ -21,7 +22,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  compnyName:
+                  companyName:
                     type: object
                     properties:
                       status:
@@ -101,13 +102,6 @@ paths:
                     properties:
                       status:
                         type: boolean
-              examples: {}
-            application/xml:
-              schema:
-                type: object
-                properties:
-                  '':
-                    type: string
         '401':
           description: Unauthorized
         '404':
@@ -252,7 +246,8 @@ components:
     API Key - 1:
       type: oauth2
       flows:
-        clientCredentials:
+        authorizationCode:
+          authorizationUrl: ''
           tokenUrl: ''
           refreshUrl: ''
           scopes: {}
