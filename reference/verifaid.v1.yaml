@@ -5,7 +5,8 @@ info:
   contact:
     name: jagruti
     email: jagruti@wohlig.com
-  description: ''
+  description: 'Secured Public API'
+tags: ['user']
 servers:
   - url: 'http://localhost:3000'
     description: Verifying money flow across businesses.
@@ -13,7 +14,7 @@ paths:
   /:
     post:
       summary: Your POST endpoint
-      tags: []
+      description: Check Provided information of user is Valid or not.
       responses:
         '200':
           description: OK
@@ -154,8 +155,6 @@ components:
   schemas:
     User:
       title: User
-      x-examples:
-        example-1: {}
       type: object
       properties:
         id:
@@ -240,8 +239,6 @@ components:
           properties:
             status:
               type: boolean
-        '':
-          type: string
   securitySchemes:
     API Key - 1:
       type: oauth2
